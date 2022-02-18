@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Starter Template - Materialize</title>
+
+  <!-- CSS  -->
+  <style>
+    .input-field{
+    display: flex;
+    justify-content: center;
+    min-width: 200px;
+    height: 30px;
+    margin: 10px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+    .row{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    }
+    .subHeading{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width:100%;
+    }
+    span{
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    }
+    h5{
+      letter-spacing: 1px;
+    line-height: 1.5;
+    font-size: 15px;
+    }
+    button{
+    width: 100px;
+    height: 33px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.7s all ease-out;
+  }
+  button:hover{
+    box-shadow:0px 1px 5px rgb(0,0,0.5) ;
+  }
+  </style>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- <link href="./static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/> -->
+  <!-- <link href="./static/css2/style.css" type="text/css" rel="stylesheet" media="screen,projection"/> -->
+</head>
+
+<body>
+  
+  <div class="section no-pad-bot" align="center" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center orange-text">Disease Prediction</h1>
+      <div class="subHeading">
+        <h5 class="header col s12 light">Hello User, Welcome to the Disease prediction section. Now you can know about disease you might have by taking the test below. Please select all the symptoms you are having and click submit.
+        <br>
+        </h5>
+      </div>
+
+              <div class="row">
+    <form action='/predict' method="POST" class="col s12">
+      <div class="row">
+        <div class="input-field col s4">
+            <label for="itching"><span>Itching</span></label>
+            <input type="hidden" name="itching" id="itching" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+        </div>
+        <div class="input-field col s4">
+          <label for="skin_rash"><span>Skin Rash</span></label>
+          <input type="hidden" name="skin_rash" id="skin_rash" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+      </div>
+      <div class="input-field col s4">
+        <label for="nodal_skin_eruptions"><span>Nodal Skin Eruptions</span></label>
+        <input type="hidden" name="nodal_skin_eruptions" id="nodal_skin_eruptions" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+    </div>
+    <div class="input-field col s4">
+      <label for="continous_sneezing"><span>Continuous Sneezing</span></label>
+      <input type="hidden" name="continous_sneezing" id="continous_sneezing" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+  </div>
+  <div class="input-field col s4">
+    <label for="a1"><span>Shivering</span></label>
+    <input type="hidden" name="a1" id="a1" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+  <label for="a2"><span>Chills</span></label>
+  <input type="hidden" name="a2" id="a2" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+  <label for="a3"><span>Joint pain</span></label>
+  <input type="hidden" name="a3" id="a3" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+<label for="a4"><span>Stomach Pain</span></label>
+<input type="hidden" name="a4" id="a4" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+  <label for="a5"><span>Acidity</span></label>
+  <input type="hidden" name="a5" id="a5" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+<label for="a6"><span>Ulcers on Tongue</span></label>
+<input type="hidden" name="a6" id="a6" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+<label for="a7"><span>Muscle Wasting</span></label>
+<input type="hidden" name="a7" id="a7" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+<label for="a8"><span>Vomiting</span></label>
+<input type="hidden" name="a8" id="a8" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+  <label for="a9"><span>Burning Micturition</span></label>
+  <input type="hidden" name="a9" id="a9" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+  </div>
+  <div class="input-field col s4">
+  <label for="a10"><span>Spotting Urination</span></label>
+  <input type="hidden" name="a10" id="a10" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+  </div>
+  <div class="input-field col s4">
+    <label for="a11"><span>Fatigue</span></label>
+    <input type="hidden" name="a11" id="a11" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+  <label for="a12"><span>Weight Gain</span></label>
+  <input type="hidden" name="a12" id="a12" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+<label for="a13"><span>anxiety</span></label>
+<input type="hidden" name="a13" id="a13" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+<label for="a14"><span>Cold hands and feets</span></label>
+<input type="hidden" name="a14" id="a14" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+<label for="a15"><span>Mood Swings</span></label>
+<input type="hidden" name="a15" id="a15" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+<label for="a16"><span>Weight Loss</span></label>
+<input type="hidden" name="a16" id="a16" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+<label for="a17"><span>Restlessness</span></label>
+<input type="hidden" name="a17" id="a17" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+<label for="a18"><span>Lethargy</span></label>
+<input type="hidden" name="a18" id="a18" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+<label for="a19"><span>Patches in Throat</span></label>
+<input type="hidden" name="a19" id="a19" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+<label for="a20"><span>Irregular Sugar Level</span></label>
+<input type="hidden" name="a20" id="a20" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+<label for="a21"><span>Cough</span></label>
+<input type="hidden" name="a21" id="a21" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+  <label for="b21"><span>High Fever</span></label>
+  <input type="hidden" name="b21" id="b21" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+  </div>
+<div class="input-field col s4">
+<label for="a22"><span>Sunken Eyes</span></label>
+<input type="hidden" name="a22" id="a22" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+<label for="a23"><span>Breathlessness</span></label>
+<input type="hidden" name="a23" id="a23" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+<label for="a24"><span>Sweating</span></label>
+<input type="hidden" name="a24" id="a24" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+  <label for="a25"><span>Dehydration</span></label>
+  <input type="hidden" name="a25" id="a25" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+<label for="a26"><span>Indigestion</span></label>
+<input type="hidden" name="a26" id="a26" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+<label for="a27"><span>Headache</span></label>
+<input type="hidden" name="a27" id="a27" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+<label for="a28"><span>Yellowish Skin</span></label>
+<input type="hidden" name="a28" id="a28" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+<label for="a29"><span>Dark Urine</span></label>
+<input type="hidden" name="a29" id="a29" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+<label for="a30"><span>Nausea</span></label>
+<input type="hidden" name="a30" id="a30" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+<label for="a31"><span>Loss Of Appetite</span></label>
+<input type="hidden" name="a31" id="a31" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+<label for="a32"><span>Pain Behind Eyes</span></label>
+<input type="hidden" name="a32" id="a32" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+<label for="a33"><span>Back Pain</span></label>
+<input type="hidden" name="a33" id="a33" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+<label for="a34"><span>Constipation</span></label>
+<input type="hidden" name="a34" id="a34" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+  <label for="a35"><span>Abdominal Pain</span></label>
+  <input type="hidden" name="a35" id="a35" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+<label for="a36"><span>Diarrhoea</span></label>
+<input type="hidden" name="a36" id="a36" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+<label for="a37"><span>Mild Fever</span></label>
+<input type="hidden" name="a37" id="a37" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+<label for="a38"><span>Yellow Urine</span></label>
+<input type="hidden" name="a38" id="a38" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+<label for="a39"><span>Yellow Eyes</span></label>
+<input type="hidden" name="a39" id="a39" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+<label for="a40"><span>Acute Lever Failure</span></label>
+<input type="hidden" name="a40" id="a40" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+<label for="a41"><span>Fluid Overload</span></label>
+<input type="hidden" name="a41" id="a41" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+<label for="a42"><span>Swelling of Stomach</span></label>
+<input type="hidden" name="a42" id="a42" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+<label for="b42"><span>Swelled Lymphd Nodes</span></label>
+<input type="hidden" name="b42" id="b42" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+<label for="b43"><span>Malaise</span></label>
+<input type="hidden" name="b43" id="b43" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+<label for="a43"><span>Blurred and Distorted Vision</span></label>
+<input type="hidden" name="a43" id="a43" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+<label for="a44"><span>Phlegm</span></label>
+<input type="hidden" name="a44" id="a44" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+<label for="a45"><span>Throat Irritation</span></label>
+<input type="hidden" name="a45" id="a45" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+<label for="a46"><span>Redness Of Eyes</span></label>
+<input type="hidden" name="a46" id="a46" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+<label for="a47"><span>Sinus Pressure</span></label>
+<input type="hidden" name="a47" id="a47" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+</div>
+<div class="input-field col s4">
+  <label for="a48"><span>Runny Nose</span></label>
+  <input type="hidden" name="a48" id="a48" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+  </div>
+  <div class="input-field col s4">
+  <label for="a49"><span>Congestion</span></label>
+  <input type="hidden" name="a49" id="a49" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+  </div>
+  <div class="input-field col s4">
+  <label for="a50"><span>Chest Pain</span></label>
+  <input type="hidden" name="a50" id="a50" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+  </div>
+  <div class="input-field col s4">
+  <label for="a51"><span>Weakness in Limbs</span></label>
+  <input type="hidden" name="a51" id="a51" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+  </div>
+  <div class="input-field col s4">
+  <label for="a52"><span>Fast Heart Rate</span></label>
+  <input type="hidden" name="a52" id="a52" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+  </div>
+  <div class="input-field col s4">
+    <label for="a53"><span>Pain during bowel movement</span></label>
+    <input type="hidden" name="a53" id="a53" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+  </div>
+  <div class="input-field col s4">
+  <label for="a54"><span>Pain in Anal Region</span></label>
+  <input type="hidden" name="a54" id="a54" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+  </div>
+  <div class="input-field col s4">
+  <label for="a55"><span>Bloody Stool</span></label>
+  <input type="hidden" name="a55" id="a55" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+  </div>
+  <div class="input-field col s4">
+  <label for="a56"><span>Irritation in Anus</span></label>
+  <input type="hidden" name="a56" id="a56" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+  </div>
+  <div class="input-field col s4">
+  <label for="a57"><span>Neck Pain</span></label>
+  <input type="hidden" name="a57" id="a57" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+  </div>
+  <div class="input-field col s4">
+  <label for="a58"><span>Dizziness</span></label>
+  <input type="hidden" name="a58" id="a58" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+  </div>
+  <div class="input-field col s4">
+  <label for="a59"><span>Cramps</span></label>
+  <input type="hidden" name="a59" id="a59" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+  </div>
+  <div class="input-field col s4">
+  <label for="a60"><span>Bruising</span></label>
+  <input type="hidden" name="a60" id="a60" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+  </div>
+  <div class="input-field col s4">
+  <label for="a61"><span>Obesity</span></label>
+  <input type="hidden" name="a61" id="a61" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+  </div>
+  <div class="input-field col s4">
+  <label for="a62"><span>Swollen Legs</span></label>
+  <input type="hidden" name="a62" id="a62" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+  </div>
+  <div class="input-field col s4">
+    <label for="a63"><span>Swollen Blood Vessels</span></label>
+    <input type="hidden" name="a63" id="a63" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+  </div>
+  <div class="input-field col s4">
+  <label for="a64"><span>Puffy Face and Eyes</span></label>
+  <input type="hidden" name="a64" id="a64" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+  </div>
+  <div class="input-field col s4">
+  <label for="a65"><span>Enlarge Thyroid</span></label>
+  <input type="hidden" name="a65" id="a65" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+  </div>
+  <div class="input-field col s4">
+  <label for="a66"><span>Brittle nails</span></label>
+  <input type="hidden" name="a66" id="a66" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+  </div>
+  <div class="input-field col s4">
+  <label for="a67"><span>Swollen Extremeties</span></label>
+  <input type="hidden" name="a67" id="a67" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+  </div>
+  <div class="input-field col s4">
+  <label for="a68"><span>Excessive Hunger</span></label>
+  <input type="hidden" name="a68" id="a68" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+  </div>
+  <div class="input-field col s4">
+  <label for="a69"><span>Extra Marital Contacts</span></label>
+  <input type="hidden" name="a69" id="a69" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+  </div>
+  <div class="input-field col s4">
+  <label for="a70"><span>Drying and Tingling Lips</span></label>
+  <input type="hidden" name="a70" id="a70" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+  </div>
+  <div class="input-field col s4">
+  <label for="a71"><span>Slurred Speech</span></label>
+  <input type="hidden" name="a71" id="a71" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+  </div>
+  <div class="input-field col s4">
+  <label for="a72"><span>Knee Pain</span></label>
+  <input type="hidden" name="a72" id="a72" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+  </div>
+  <div class="input-field col s4">
+  <label for="a73"><span>Hip Join Pain</span></label>
+  <input type="hidden" name="a73" id="a73" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+  </div>
+  <div class="input-field col s4">
+  <label for="a74"><span>Muscle Weakness</span></label>
+  <input type="hidden" name="a74" id="a74" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+  </div>
+  <div class="input-field col s4">
+  <label for="a75"><span>Stiff Neck</span></label>
+  <input type="hidden" name="a75" id="a75" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+  </div>
+  <div class="input-field col s4">
+  <label for="a76"><span>Swelling Joints</span></label>
+  <input type="hidden" name="a76" id="a76" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+  </div>
+  <div class="input-field col s4">
+    <label for="a77"><span>Movement Stiffness</span></label>
+    <input type="hidden" name="a77" id="a77" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+    </div>
+    <div class="input-field col s4">
+    <label for="a78"><span>Spinning Movements</span></label>
+    <input type="hidden" name="a78" id="a78" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+    </div>
+    <div class="input-field col s4">
+    <label for="a79"><span>Loss Of Balance</span></label>
+    <input type="hidden" name="a79" id="a79" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+    </div>
+    <div class="input-field col s4">
+    <label for="a80"><span>Unsteadiness</span></label>
+    <input type="hidden" name="a80" id="a80" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+    </div>
+    <div class="input-field col s4">
+    <label for="a81"><span>Weakness of one body side</span></label>
+    <input type="hidden" name="a81" id="a81" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+    </div>
+    <div class="input-field col s4">
+    <label for="a82"><span>Loss Of Smell</span></label>
+    <input type="hidden" name="a82" id="a82" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+    </div>
+    <div class="input-field col s4">
+    <label for="a83"><span>Bladder Discomfort</span></label>
+    <input type="hidden" name="a83" id="a83" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+    </div>
+    <div class="input-field col s4">
+    <label for="a84"><span>Foul Smell of Urine</span></label>
+    <input type="hidden" name="a84" id="a84" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+    </div>
+    <div class="input-field col s4">
+    <label for="a85"><span>Continuous feel of Urine</span></label>
+    <input type="hidden" name="a85" id="a85" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+    </div>
+    <div class="input-field col s4">
+      <label for="a86"><span>Passage of gases</span></label>
+      <input type="hidden" name="a86" id="a86" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+    </div>
+    <div class="input-field col s4">
+    <label for="a87"><span>Internal Itching</span></label>
+    <input type="hidden" name="a87" id="a87" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+    </div>
+    <div class="input-field col s4">
+    <label for="a88"><span>Toxic Look(typhos)</span></label>
+    <input type="hidden" name="a88" id="a88" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+    </div>
+    <div class="input-field col s4">
+      <label for="b88"><span>Depression</span></label>
+      <input type="hidden" name="b88" id="b88" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+      </div>
+    <div class="input-field col s4">
+    <label for="a89"><span>Irratability</span></label>
+    <input type="hidden" name="a89" id="a89" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+    </div>
+    <div class="input-field col s4">
+    <label for="a90"><span>Muscle Pain</span></label>
+    <input type="hidden" name="a90" id="a90" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+    </div>
+    <div class="input-field col s4">
+    <label for="a91"><span>Alteresd Sensorium</span></label>
+    <input type="hidden" name="a91" id="a91" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+    </div>
+    <div class="input-field col s4">
+    <label for="a92"><span>Red Spots over body</span></label>
+    <input type="hidden" name="a92" id="a92" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+    </div>
+    <div class="input-field col s4">
+    <label for="a93"><span>Belly Pain</span></label>
+    <input type="hidden" name="a93" id="a93" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+    </div>
+    <div class="input-field col s4">
+    <label for="a94"><span>Abnormal Menstruation</span></label>
+    <input type="hidden" name="a94" id="a94" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+    </div>
+    <div class="input-field col s4">
+    <label for="a95"><span>Dichronic Patches</span></label>
+    <input type="hidden" name="a95" id="a95" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+    </div>
+    <div class="input-field col s4">
+    <label for="a96"><span>Watering from Eyes</span></label>
+    <input type="hidden" name="a96" id="a96" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+    </div>
+    <div class="input-field col s4">
+    <label for="a97"><span>Incresed Appetite</span></label>
+    <input type="hidden" name="a97" id="a97" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+    </div>
+    <div class="input-field col s4">
+    <label for="a98"><span>Polyuria</span></label>
+    <input type="hidden" name="a98" id="a98" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+    </div>
+    <div class="input-field col s4">
+    <label for="a99"><span>Family History</span></label>
+    <input type="hidden" name="a99" id="a99" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+    </div>
+    <div class="input-field col s4">
+      <label for="a100"><span>Mucoid Sputum</span></label>
+      <input type="hidden" name="a100" id="a100" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+      </div>
+      <div class="input-field col s4">
+      <label for="a101"><span>Rusty Sputum</span></label>
+      <input type="hidden" name="a101" id="a101" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+      </div>
+      <div class="input-field col s4">
+      <label for="a102"><span>Lack of Concentration</span></label>
+      <input type="hidden" name="a102" id="a102" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+      </div>
+      <div class="input-field col s4">
+      <label for="a103"><span>Visual Disturbances</span></label>
+      <input type="hidden" name="a103" id="a103" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+      </div>
+      <div class="input-field col s4">
+        <label for="b104"><span>Receiving Blood Transfusion</span></label>
+        <input type="hidden" name="b104" id="b104" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+        </div>
+      <div class="input-field col s4">
+      <label for="a104"><span>Receiving Unsterile Injections</span></label>
+      <input type="hidden" name="a104" id="a104" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+      </div>
+      <div class="input-field col s4">
+      <input type="hidden" name="b106" id="b106" value=0>
+      </div>
+      <div class="input-field col s4">
+        <label for="a106"><span>Stomach Bleeding</span></label>
+        <input type="hidden" name="a106" id="a106" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+      </div>
+      <div class="input-field col s4">
+      <label for="a107"><span>Distention of Abdomen</span></label>
+      <input type="hidden" name="a107" id="a107" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+      </div>
+      <div class="input-field col s4">
+        <label for="b89"><span>History of Alcohol Comsumption</span></label>
+        <input type="hidden" name="b89" id="b89" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+      </div>
+      <div class="input-field col s4">
+      <label for="a108"><span>Fluid Overload</span></label>
+      <input type="hidden" name="a108" id="a108" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+      </div>
+      <div class="input-field col s4">
+      <label for="a109"><span>Blood in Sputum</span></label>
+      <input type="hidden" name="a109" id="a109" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+      </div>
+      <div class="input-field col s4">
+      <label for="a110"><span>Prominent veins on calf</span></label>
+      <input type="hidden" name="a110" id="a110" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+      </div>
+      <div class="input-field col s4">
+        <label for="b111"><span>Palpitation</span></label>
+        <input type="hidden" name="b111" id="b111" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+        </div>
+      <div class="input-field col s4">
+      <label for="a111"><span>Painful Walking</span></label>
+      <input type="hidden" name="a111" id="a111" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+      </div>
+      <div class="input-field col s4">
+      <label for="a112"><span>Pus Filled Pimples</span></label>
+      <input type="hidden" name="a112" id="a112" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+      </div>
+      <div class="input-field col s4">
+      <label for="a113"><span>Blackheads</span></label>
+      <input type="hidden" name="a113" id="a113" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+      </div>
+      <div class="input-field col s4">
+      <label for="a114"><span>Scurring</span></label>
+      <input type="hidden" name="a114" id="a114" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+      </div>
+      <div class="input-field col s4">
+      <label for="a115"><span>Skin Peeling</span></label>
+      <input type="hidden" name="a115" id="a115" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+      </div>
+      <div class="input-field col s4">
+        <label for="a116"><span>Silver Like Dusting</span></label>
+        <input type="hidden" name="a116" id="a116" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+      </div>
+      <div class="input-field col s4">
+      <label for="a117"><span>Small dents</span></label>
+      <input type="hidden" name="a117" id="a117" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+      </div>
+      <div class="input-field col s4">
+      <label for="a118"><span>Inflammator</span></label>
+      <input type="hidden" name="a118" id="a118" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+      </div>
+      <div class="input-field col s4">
+      <label for="a119"><span>Blister</span></label>
+      <input type="hidden" name="a119" id="a119" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+      </div>
+      <div class="input-field col s4">
+      <label for="a120"><span>Red sore around nose</span></label>
+      <input type="hidden" name="a120" id="a120" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+      </div>
+      <div class="input-field col s4">
+      <label for="a121"><span>Yellow Crust Ooze</span></label>
+      <input type="hidden" name="a121" id="a121" value=0><input type="checkbox" onclick="this.previousSibling.value=1">
+      </div>
+
+      </div>
+
+      <div class="subHeading">
+
+          <button type="submit" class="btn-large waves-effect waves-light orange">Submit</button>
+      </div>
+
+    </form>
+    
+
+      <div class="subHeading"><span>{{pred}}</span></div>
+        
+
+        <div><p><b>Warning:</b> This symptom based test is based on the dataset which is publicly available and it is for information only.For any medical assistance please contact medical professional near you.</p></div>
+    <div>
+      <p><b>Dataset Link :</b> <a href="https://impact.dbmi.columbia.edu/~friedma/Projects/DiseaseSymptomKB/index.html">Click here to view data used for the test.</a></p>
+
+    </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src=".js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>
+
