@@ -3,7 +3,8 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>Starter Template - Materialize</title>
+  <title>Disease Predictor</title>
+  <link rel="icon" href="https://i.ibb.co/1r35fsX/Sapto-favicon.png" type="image/x-icon">
 
   <!-- CSS  -->
   <style>
@@ -60,6 +61,7 @@
   }
   </style>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
   <!-- <link href="./static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/> -->
   <!-- <link href="./static/css2/style.css" type="text/css" rel="stylesheet" media="screen,projection"/> -->
 </head>
@@ -69,13 +71,14 @@
   <div class="section no-pad-bot" align="center" id="index-banner">
     <div class="container">
       <br><br>
-      <h1 class="header center orange-text">Disease Prediction</h1>
+      <h1 class="header">Disease Prediction</h1>
+    </div>
       <div class="subHeading">
-        <h5 class="header col s12 light">Hello User, Welcome to the Disease prediction section. Now you can know about disease you might have by taking the test below. Please select all the symptoms you are having and click submit.
+        <h4 class="header col s12 light">Hello User, Welcome to the Disease prediction section. Now you can know about disease you might have by taking the test below. Please select all the symptoms you are having and click submit.
         <br>
-        </h5>
-      </div>
-
+        </h4>
+    
+    </div>
               <div class="row">
     <form action='/predict' method="POST" class="col s12">
       <div class="row">
@@ -611,7 +614,7 @@
 
       <div class="subHeading">
 
-          <button type="submit" class="btn-large waves-effect waves-light orange">Submit</button>
+          <button type="submit" class="my-cta-button">Submit</button>
       </div>
 
     </form>
@@ -620,9 +623,9 @@
       <div class="sub"><span>{{pred}}</span></div>
         
 
-        <div><p><b>Warning:</b> This symptom based test is based on the dataset which is publicly available and it is for information only.For any medical assistance please contact medical professional near you.</p></div>
+        <div><p style=" padding-left: 10px;color: #0b0c0b;font-size: 20px;"><b>Warning:</b> This symptom based test is based on the dataset which is publicly available and it is for information only.For any medical assistance please contact medical professional near you.</p></div>
     <div>
-      <p><b>Dataset Link :</b> <a href="https://impact.dbmi.columbia.edu/~friedma/Projects/DiseaseSymptomKB/index.html">Click here to view data used for the test.</a></p>
+      <p style="padding-left: 520px;font-size: 19px;"><b>Dataset Link :</b> <a href="https://impact.dbmi.columbia.edu/~friedma/Projects/DiseaseSymptomKB/index.html">Click here to view data used for the test.</a></p>
 
     </div>
       </div>
