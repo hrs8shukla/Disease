@@ -19,6 +19,7 @@ def predict():
     print(int_features)
     print(final)
     prediction = model.predict(final)
+    print(prediction)
 
     def listToString(s):
         str1 = ""
