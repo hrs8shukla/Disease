@@ -4,7 +4,7 @@ import numpy as np
 
 app = Flask(__name__)
 
-model = pickle.load(open('D:\Anushtha\Documents\Anveshna Projects\Disease\disease.pkl', 'rb'))
+model = pickle.load(open('disease.pkl', 'rb'))
 
 
 @app.route('/')

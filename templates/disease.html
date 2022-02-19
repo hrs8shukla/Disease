@@ -8,6 +8,34 @@
 
   <!-- CSS  -->
   <style>
+       *{transition:all 0.3s ease-in-out;}
+        
+        
+        
+        nav{float:right;}
+        
+        .logo img{float:left;}
+        
+        ul li{
+          display: inline-block; padding:10px;
+          font-size:20px; font-family:raleway;
+        }
+        
+        ul li:hover{
+          color:blue;
+          
+          
+        }
+        a:link {
+          color:black; 
+          background-color: transparent; 
+          text-decoration: none;
+        }
+        a:hover {
+          color: red;
+          background-color: transparent;
+          text-decoration: none;
+        }
     .input-field{
     display: flex;
     justify-content: center;
@@ -67,7 +95,21 @@
 </head>
 
 <body>
-  
+  <div class="content">
+    <div class="logo">
+      <img src="/static/Sapto.png" alt="" width="230"/>
+      </div>
+    <nav>
+      <ul>
+    <li><a href="https://diseasetest.herokuapp.com"><b>Home</b></a></li>
+    <li><a href="https://sapto-fitness-tracker.herokuapp.com"> <b>Diet Plan</b></a></li>
+      <li><a href="https://depres.herokuapp.com"><b>Mental Health</b></a></li>
+      <li><a href="https://diabetss.herokuapp.com"><b>Diabetes</b></a></li>
+      
+      </ul>
+      </nav>
+    </div>
+    <hr />
   <div class="section no-pad-bot" align="center" id="index-banner">
     <div class="container">
       <br><br>
